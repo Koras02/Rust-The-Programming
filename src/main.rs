@@ -24,8 +24,8 @@ use std::io;
 
     println!("Please input your guess.");
 
-    // 값을 변수에 저장하기 
-    // 다음으로 우리는 다음 코드처럼 사용자의 입력값을 저장할 공간을 생성할 수 있다.
+    // // 값을 변수에 저장하기 
+    // // 다음으로 우리는 다음 코드처럼 사용자의 입력값을 저장할 공간을 생성할 수 있다.
     let mut guess = String::new();
 
     // 이제 프로그램이 점점 흥미러워지고 있다! 이 짧은 라인에서 여러 일들이 벌어진다. 이 라인이 변수를 
@@ -50,8 +50,8 @@ use std::io;
     // 프로그램에 첫번째 라인에 use std::io; 를 이용해 표준 라이브러리의 input/output 기능을 포함한것을 떠올려보자
     // 이제 우리는 io의 연관함수는 stdin을 호출한다.
 
-    // io::stdin().read_line(&mut guess)
-    //   .expect("Failed to read line");
+    io::stdin().read_line(&mut guess)
+      .expect("Failed to read line");
     
         // 만약 프로그램 시작점에 use std::io가 없다면 함수 호출 시 std::io::stdin 처럼 작성해야 한다.
         // stdin 함수는 터미널의 표준 입력의 핸들(handle)의 타입인 std::io::Stdin의 인스턴스를 돌려준다. 
@@ -76,7 +76,7 @@ use std::io;
     // .foo() 형태의 문법으로 메소드를 호출할 경우 긴 라인을 나누기 위해 다음 줄과 여백을 넣는 것이 바람직하다.
     // 위 코드를 아래처럼 쓸수 있다.
     // 하지만 하나의 긴 라인은 가독성이 떨어지므로 두 개의 메소드 호출을 위한 라인으로 나누는 것이 좋다.
-    io::stdin().read_line(&mut guess).expect("Failed to read line");
+    // io::stdin().read_line(&mut guess).expect("Failed to read line");
 
     println!("You guessed: {}", guess);
 
@@ -103,6 +103,18 @@ use std::io;
     // 이 경고를 없애는 옳은 방법은 에러를 처리하는 코드를 작성하는 것이지만 만약 문제가 발생할 때 프로그램이 멈추기 발란다면 expect를 사용할수 있다.
     // 9장에서 에러를 발생했을때 이를 처리하는 방법을 배운다.
 
+
+    // println! 변경자(placeholder)를 이용한 값 출력
+    // println!("You guessed: {}", guess);
+    // 지금 까지 작성한 코드에서 닫는 중괄호 말고 살펴봐야 하는 코드가 하나 더있다.
+    // 이 라인은 사용자가 입력한 값을 저장한 문자열을 출력한다. {}는 변경자로써 값이 표시되는 위치를 나타낸다.
+    // {}를 이용해 하나 이상의 값을 표시할 수도 있다. 첫번째 {}는 형식 문자열(format string) 이후의 첫번째 값을 표시하며,
+    // 두변째 {}는 두번째 값을 나타내며 이후에도 비슷하게 작동한다.
+    // 다음 코드는 println!을 이용해 여러 값을 표시하는 방법을 보여준다.
     
-    
+    let x = 5;
+    let y = 10;
+
+    // 이 코드는 x = 5 and y = 10을 출력 한다.
+    println!("x = {} and y = {}", x , y);
 }
