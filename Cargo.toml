@@ -5,4 +5,22 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+# 다음으로 사용자가 추리하기 위한 비밀번호를 생성해야 한다. 게임을 다시하더라도 재미있도록 
+# 비밀번호는 매번 달라야한다. 게임이 너무 어렵지 않도록 1에서 100 사이의 임의의 수를 사용한다. 러스트는 
+# 아직 표준 라이브러리에 임의의 값을 생성하는 기능이 없다. 하지만 러스트 팀에서는 read 크레이트를 제공한다.
+
+# 크레이트(Create)를 사용해 더 많은 기능 가져오기 
+# 크레이트는 러스트 코드의 묶음(package) 임을 기억하자. 우리가 만들고 있는 프로젝트는 실행이 가능한 binary create이다.
+
+# rand create는 다른 프로그램에서 사용되기 위한 용도인 library create 이다.
+# rand를 사용하는 코드를 작성하기전 Cargo.toml을 수정해 rand 크레이트를 의존 리스트에 추가해야함. 파일을 열고 Cargo가 생성한 dependencies 절의 시작 바로 
+# 아래에 추가 
+
+# Cargo.toml 파일에서 하나의 절의 시작 이후 모든 내용은 그 절에 포함되 이는 다음 절이 나타날 때까지 동일하다.
+# [dependencies] 절은 여러분의 프로젝트가 의존하고 있는 외부 크레이트와 각각 요구 버전을 Cargo에 명시하는 곳이다.
+# 지금의 경우 우리는 rand 크레이트의 유의적 버전인 0.3.14을 명시했다. Cargo는 버전을 명시하는 표준에 해당하는 semantic Versioning(semver)을 이용한다.
+# 0.3.14는 ^0.3.14의 축약형이 되며 이는 버전 0.3.14와 호환되는 API를 제공하는 모든 버전임을 의미한다. 
 [dependencies]
+
+rand = "0.4.0"
+
