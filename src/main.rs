@@ -12,7 +12,9 @@ fn main() {
 
     println!("The secret number is: {}", secret_number);
 
-    println!("Please input your guess.");
+    // 반복문 을 이용하 추리
+   loop {
+     println!("Please input your guess.");
 
     let mut guess = String::new();
 
@@ -27,9 +29,13 @@ fn main() {
     match guess.cmp(&secret_number) {
         Ordering::Less    => println!("Too small!"),
         Ordering::Greater => println!("Too big!"),
-        Ordering::Equal   => println!("You win!"),
+        Ordering::Equal   => {
+            println!("You win!");
+            // 정답일때 종료
+            break;
+        },
     }
 
-
+   }
 
 }
